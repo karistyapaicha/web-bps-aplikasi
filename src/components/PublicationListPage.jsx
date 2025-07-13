@@ -19,13 +19,13 @@ export default function PublicationListPage() {
     }
   };
 
-  const toggleDescription = (id) => {
-    if (expandedRows.includes(id)) {
-      setExpandedRows(expandedRows.filter(rowId => rowId !== id));
-    } else {
-      setExpandedRows([...expandedRows, id]);
-    }
-  };
+  // const toggleDescription = (id) => {
+  //   if (expandedRows.includes(id)) {
+  //     setExpandedRows(expandedRows.filter(rowId => rowId !== id));
+  //   } else {
+  //     setExpandedRows([...expandedRows, id]);
+  //   }
+  // };
 
   // const truncate = (text, limit = 25) => {
   //   const words = text.split(' ');
@@ -43,7 +43,7 @@ export default function PublicationListPage() {
           <thead className="text-xs text-white uppercase bg-slate-700 text-center">
             <tr>
               <th scope="col" className="px-6 py-3 text-center w-16">No</th>
-              <th scope="col" className="px-6 py-3 w-1/4">Judul</th>
+              <th scope="col" className="px-6 py-3 w-1/5">Judul</th>
               <th scope="col" className="px-6 py-3 whitespace-pre-line w-1/4">Deskripsi</th>
               <th scope="col" className="px-6 py-3">Tanggal Rilis</th>
               <th scope="col" className="px-6 py-3 text-center">Sampul</th>
