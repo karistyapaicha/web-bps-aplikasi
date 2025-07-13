@@ -71,13 +71,15 @@ export default function PublicationListPage() {
                   )}
                 </td>
                 <td className="px-6 py-4 text-gray-600">{pub.releaseDate}</td>
-                <td className="px-6 py-4 flex justify-center items-center h-full w-full">
-                  <img
-                    src={pub.coverUrl || 'https://placehold.co/100x140?text=No+Image'}
-                    alt={`Sampul ${pub.title}` || 'Publikasi'}
-                    className="h-24 w-auto object-cover rounded shadow-md"
-                    onError={e => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x140/cccccc/ffffff?text=Error'; }}
-                  />
+                <td className="px-6 py-4 flex">
+                  <div className="flex justify-center items-center h-full w-full">
+                    <img
+                      src={pub.coverUrl || 'https://placehold.co/100x140?text=No+Image'}
+                      alt={`Sampul ${pub.title}` || 'Publikasi'}
+                      className="h-24 w-auto object-cover rounded shadow-md"
+                      onError={e => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x140/cccccc/ffffff?text=Error'; }}
+                    />
+                  </div>
                 </td>
                 <td className="px-6 py-4 text-center">
                   <button
