@@ -27,7 +27,7 @@ export default function PublicationListPage() {
     }
   };
 
-  const truncate = (text, limit = 25) => {
+  const truncate = (text, limit = 15) => {
     const words = text.split(' ');
     return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
   };  
@@ -44,7 +44,7 @@ export default function PublicationListPage() {
             <tr>
               <th scope="col" className="px-6 py-3 text-center w-16">No</th>
               <th scope="col" className="px-6 py-3 w-1/5">Judul</th>
-              <th scope="col" className="px-6 py-3 whitespace-pre-line w-1/4">Deskripsi</th>
+              <th scope="col" className="px-6 py-3 whitespace-pre-line w-2/5">Deskripsi</th>
               <th scope="col" className="px-6 py-3">Tanggal Rilis</th>
               <th scope="col" className="px-6 py-3 text-center">Sampul</th>
               <th scope="col" className="px-6 py-3 text-center">Aksi</th>
@@ -58,24 +58,24 @@ export default function PublicationListPage() {
                 <td className="px-6 py-4 text-gray-700 whitespace-pre-line">
                   {expandedRows.includes(pub.id)
                     ? pub.description
-                    : truncate(pub.description || '-', 25)}
-                  {pub.description && pub.description.split(' ').length > 25 && (
+                    : truncate(pub.description || '-', 15)}
+                  {pub.description && pub.description.split(' ').length > 15 && (
                     <div>
                       <span
                         onClick={() => toggleDescription(pub.id)}
                         className="text-blue-600 cursor-pointer text-sm"
                       >
-                        {expandedRows.includes(pub.id) ? 'Tutup' : 'Lihat Selengkapnya'}
+                        {expandedRows.includes(pub.id) ? 'Lebih Sedikit' : 'Baca Selengkapnya'}
                       </span>
                     </div>
                   )}
                 </td>
                 <td className="px-6 py-4 text-gray-600">{pub.releaseDate}</td>
-                <td className="px-6 py-4 flex justify-center items-center">
+                <td className="px-6 py-4 flex justify-center items-center h-full">
                   <img
                     src={pub.coverUrl || 'https://placehold.co/100x140?text=No+Image'}
                     alt={`Sampul ${pub.title}` || 'Publikasi'}
-                    className="h-24 w-auto object-cover rounded shadow-md"
+                    className="h-24 w-auto object-cover rounded shadow-md mx-auto"
                     onError={e => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x140/cccccc/ffffff?text=Error'; }}
                   />
                 </td>
