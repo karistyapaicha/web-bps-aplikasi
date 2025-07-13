@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function PublicationListPage() {
   const { publications, deletePublication } = usePublications();
   const navigate = useNavigate();
-  // const [expandedRows, setExpandedRows] = useState([]);
+  const [expandedRows, setExpandedRows] = useState([]);
 
   const handleDelete = async (id) => {
     const confirm = window.confirm("Yakin ingin hapus publikasi ini?");
@@ -19,18 +19,18 @@ export default function PublicationListPage() {
     }
   };
 
-  // const toggleDescription = (id) => {
-  //   if (expandedRows.includes(id)) {
-  //     setExpandedRows(expandedRows.filter(rowId => rowId !== id));
-  //   } else {
-  //     setExpandedRows([...expandedRows, id]);
-  //   }
-  // };
+  const toggleDescription = (id) => {
+    if (expandedRows.includes(id)) {
+      setExpandedRows(expandedRows.filter(rowId => rowId !== id));
+    } else {
+      setExpandedRows([...expandedRows, id]);
+    }
+  };
 
-  // const truncate = (text, limit = 25) => {
-  //   const words = text.split(' ');
-  //   return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
-  // };  
+  const truncate = (text, limit = 25) => {
+    const words = text.split(' ');
+    return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
+  };  
 
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
@@ -55,7 +55,21 @@ export default function PublicationListPage() {
               <tr key={pub.id} className="bg-white border-b hover:bg-gray-50 transition-colors duration-200">
                 <td className="px-6 py-4 font-medium text-gray-900 text-center">{idx + 1}</td>
                 <td className="px-6 py-4 font-semibold text-gray-800">{pub.title || '-'}</td>
-                <td className="px-6 py-4 text-gray-700 whitespace-pre-line">{pub.description || '-'}</td>
+                <td className="px-6 py-4 text-gray-700 whitespace-pre-line">
+                  {expandedRows.includes(pub.id)
+                    ? pub.description
+                    : truncate(pub.description || '-', 25)}
+                  {pub.description && pub.description.split(' ').length > 25 && (
+                    <div>
+                      <span
+                        onClick={() => toggleDescription(pub.id)}
+                        className="text-blue-600 cursor-pointer text-sm"
+                      >
+                        {expandedRows.includes(pub.id) ? 'Tutup' : 'Lihat Selengkapnya'}
+                      </span>
+                    </div>
+                  )}
+                </td>
                 <td className="px-6 py-4 text-gray-600">{pub.releaseDate}</td>
                 <td className="px-6 py-4 flex justify-center items-center">
                   <img
