@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { usePublications } from '../hooks/usePublications';
 import { useNavigate } from 'react-router-dom';
 
 export default function PublicationListPage() {
   const { publications, deletePublication } = usePublications();
   const navigate = useNavigate();
+  // const [expandedRows, setExpandedRows] = useState([]);
 
   const handleDelete = async (id) => {
     const confirm = window.confirm("Yakin ingin hapus publikasi ini?");
@@ -18,6 +19,19 @@ export default function PublicationListPage() {
     }
   };
 
+  const toggleDescription = (id) => {
+    if (expandedRows.includes(id)) {
+      setExpandedRows(expandedRows.filter(rowId => rowId !== id));
+    } else {
+      setExpandedRows([...expandedRows, id]);
+    }
+  };
+
+  // const truncate = (text, limit = 25) => {
+  //   const words = text.split(' ');
+  //   return words.length > limit ? words.slice(0, limit).join(' ') + '...' : text;
+  // };  
+
   return (
     <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
       <header className="mb-8 text-center md:text-left">
@@ -26,7 +40,7 @@ export default function PublicationListPage() {
       </header>
       <div className="relative overflow-x-auto shadow-xl rounded-lg">
         <table className="w-full text-sm text-left text-gray-500">
-          <thead className="text-xs text-white uppercase bg-slate-700">
+          <thead className="text-xs text-white uppercase bg-slate-700 text-center">
             <tr>
               <th scope="col" className="px-6 py-3 text-center w-16">No</th>
               <th scope="col" className="px-6 py-3 w-1/4">Judul</th>
