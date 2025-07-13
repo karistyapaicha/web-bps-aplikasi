@@ -42,12 +42,12 @@ export default function PublicationListPage() {
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-white uppercase bg-slate-700 text-center">
             <tr>
-              <th scope="col" className="px-6 py-3 text-center w-16">No</th>
+              <th scope="col" className="px-6 py-3 text-center w-15">No</th>
               <th scope="col" className="px-6 py-3 w-1/5">Judul</th>
               <th scope="col" className="px-6 py-3 whitespace-pre-line w-2/5">Deskripsi</th>
               <th scope="col" className="px-6 py-3">Tanggal Rilis</th>
               <th scope="col" className="px-6 py-3 text-center">Sampul</th>
-              <th scope="col" className="px-6 py-3 text-center w-1/6">Aksi</th>
+              <th scope="col" className="px-6 py-3 text-center w-1/7">Aksi</th>
             </tr>
           </thead>
           <tbody>
