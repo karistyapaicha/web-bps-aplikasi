@@ -65,7 +65,7 @@ export default function AddPublicationPage() {
             value={title}
             onChange={e => setTitle(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500"
-            placeholder="Contoh: Indikator Ekonomi Bengkulu 2025"
+            placeholder="Contoh: Provinsi Kalimantan Selatan dalam Angka 2024"
           />
         </div>
         <div>
@@ -75,7 +75,7 @@ export default function AddPublicationPage() {
             value={description}
             onChange={e => setDescription(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500"
-            placeholder="Contoh: Publikasi ini membahas Indikator Ekonomi Bengkulu 2025 secara mendalam."
+            placeholder="Contoh: Publikasi ini membahas Provinsi Kalimantan Selatan dalam Angka 2024 secara mendalam."
             rows={4}
           />
         </div>
