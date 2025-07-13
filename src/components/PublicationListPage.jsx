@@ -75,7 +75,7 @@ export default function PublicationListPage() {
                   <img
                     src={pub.coverUrl || 'https://placehold.co/100x140?text=No+Image'}
                     alt={`Sampul ${pub.title}` || 'Publikasi'}
-                    className="h-24 w-auto object-cover rounded shadow-md mx-auto"
+                    className="h-24 w-auto object-cover rounded shadow-md"
                     onError={e => { e.target.onerror = null; e.target.src = 'https://placehold.co/100x140/cccccc/ffffff?text=Error'; }}
                   />
                 </td>
