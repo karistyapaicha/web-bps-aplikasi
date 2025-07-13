@@ -47,7 +47,7 @@ export default function PublicationListPage() {
               <th scope="col" className="px-6 py-3 whitespace-pre-line w-2/5">Deskripsi</th>
               <th scope="col" className="px-6 py-3">Tanggal Rilis</th>
               <th scope="col" className="px-6 py-3 text-center">Sampul</th>
-              <th scope="col" className="px-6 py-3 text-center w-1/5">Aksi</th>
+              <th scope="col" className="px-6 py-3 text-center w-1/6">Aksi</th>
             </tr>
           </thead>
           <tbody>
